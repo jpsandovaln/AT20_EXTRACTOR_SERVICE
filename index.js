@@ -1,16 +1,12 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const ExifToolExtract = require('./src/services/exiftool_extract');
+const metadata = require('./src/routes/metadata_route');
 
 const app  = express();
 
 dotenv.config();
 
-app.get('/api/v1/extract', async (req, res) => {
-    const extract = new ExifToolExtract();
-    const result = await extract.run();
-    res.send(result);
-});
+app.use('/api/v1/extract', metadata);
 
 const port = process.env.PORT || 9090;
 
