@@ -1,3 +1,4 @@
+const CommandException = require("../common/exception/command_exception");
 const Command = require("./command")
 
 class MetadataCommand extends Command {
@@ -10,7 +11,11 @@ class MetadataCommand extends Command {
     }
 
     build() {
-        return this.exiftool + this.hexadecimalId + this.commondField + this.filePath;
+        try {
+            return this.exiftool + this.hexadecimalId + this.commondField + this.filePath;
+        } catch(error) {
+            throw new CommandException(error.message, 401, "AT20-100");
+        }
     }
 }
 

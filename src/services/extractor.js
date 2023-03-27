@@ -5,7 +5,7 @@ class Extractor {
         }
     }
 
-    extract() {
+    extract(parameter) {
         throw new Error("Method build must be implemented");
     }
 }

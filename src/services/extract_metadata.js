@@ -3,8 +3,8 @@ const MetadataCommand = require("./metadata_command");
 const Extractor = require('./extractor');
 
 class ExtractMetadata extends Extractor{
-    extract(filePath, withHexadecimalId, onlyCommonFiled) {
-        const command = new MetadataCommand(filePath, withHexadecimalId, onlyCommonFiled);
+    extract(parameter) {
+        const command = new MetadataCommand(parameter.gefilePath, parameter.getWithHexadecimalId, parameter.getOnlyCommonFiled);
         const execute = new Execute();
         return execute.run(command.build());
     }
