@@ -1,5 +1,5 @@
-const ExtractMetadata = require('../services/extract_metadata');
-const Parameter = require('../services/parameter');
+const ExtractFacade = require('../services/extract_facade');
+
 
 class MetadataController {
     async post(req, res) {
@@ -7,13 +7,7 @@ class MetadataController {
             const inputFile = req.file.path;
             const hexaId = req.body.hexaId === 'true';
             const common = req.body.common === 'true'; 
-
-            const metadata = new ExtractMetadata();
-            const parameter = new Parameter();
-            parameter.setFilePath = inputFile;
-            parameter.setOnlyCommonFiled = common;
-            parameter.setWithHexadecimalId = hexaId
-            const result = await metadata.extract(parameter);
+            const result = ExtractFacade.getMetadata(inputFile, common, hexaId)
             res.send(result);
         } catch (error) {
             res.status(error.getStatus).json({
