@@ -17,7 +17,7 @@ class ExtractFacade {
         const parameter = new Parameter();
         parameter.setFilePath = inputFile;
         parameter.setLang = lang;
-        const result = test.extract(parameter);
+        return test.extract(parameter);
     }
 }
 
