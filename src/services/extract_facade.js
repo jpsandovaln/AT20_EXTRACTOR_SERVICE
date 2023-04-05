@@ -5,10 +5,10 @@ const TextParameter = require('./text_parameter');
 const Parameter = require('./parameter');
 
 class ExtractFacade {
-    static getMetadata(inputFile, common, hexaId) {
+    static getMetadata(inputFile, common, hexaId, type) {
         const metadata = new ExtractMetadata();
         const builder = new MetadataParameter();
-        const parameter = builder.withFile(inputFile).withCommon(common).withHexa(hexaId).build();
+        const parameter = builder.withFile(inputFile).withCommon(common).withHexa(hexaId).withType(type).build();
         return metadata.extract(parameter);
     }
 

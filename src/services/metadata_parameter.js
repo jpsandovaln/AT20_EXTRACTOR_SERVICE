@@ -14,6 +14,11 @@ class MetadataParameter extends BuilderParameter {
         return this;
     }
 
+    withType(type) {
+        this.parameter.setType = type;
+        return this;
+    }
+
     withCommon(common) {
         this.parameter.setOnlyCommonFiled = common;
         return this;
