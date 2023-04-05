@@ -6,6 +6,14 @@ class Parameter {
         return this.filePath;
     }
 
+    get getType() {
+        return this.type
+    }
+
+    set setType(type) {
+        this.type = type;
+    }
+
     set setFilePath(filePath) {
         this.filePath = filePath;
     }
