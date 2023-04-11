@@ -8,7 +8,7 @@ class MetadataController {
             const hexaId = req.body.hexaId === 'true';
             const common = req.body.common === 'true'; 
             const type = req.body.type; 
-            const result = await ExtractFacade.getMetadata(inputFile, common, hexaId, type)
+            const result = await ExtractFacade.getMetadata(inputFile, common, hexaId, type);
             res.send(result);
         } catch (error) {
             res.status(error.getStatus).json({
