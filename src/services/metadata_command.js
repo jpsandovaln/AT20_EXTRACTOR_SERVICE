@@ -1,5 +1,5 @@
 const CommandException = require("../common/exception/command_exception");
-const Command = require("./command")
+const Command = require("./command");
 
 class MetadataCommand extends Command {
     constructor(filePath, withHexadecimalId, onlyCommonFiled) {
