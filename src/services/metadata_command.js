@@ -4,6 +4,9 @@ const Command = require("./command");
 class MetadataCommand extends Command {
     constructor(filePath, withHexadecimalId, onlyCommonFiled) {
         super();
+        if (!filePath) {
+            throw new CommandException("invalid filePath", 401, "AT20-101");
+        }
         this.exiftool = 'D:/AT20/AT20_EXTRACTOR_SERVICE/thirdparties/win/exiftool.exe ';
         this.filePath = filePath;
         this.hexadecimalId  = withHexadecimalId ? " -H " : "";
